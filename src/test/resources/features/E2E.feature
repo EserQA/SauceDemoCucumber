@@ -18,8 +18,19 @@ Feature: E2E test to buy any item from https://www.saucedemo.com/
     And the user clicks continue button
     When the user clicks finish button
     Then the user buys any item and see the following message
-    |CHECKOUT: COMPLETE!|
+      | Checkout: Complete! |
 
+#  Scenario Outline: Buy any item
+#    Given the user clicks any add to cart button
+#    And the user clicks cart icon
+#    When the user clicks checkout button
+#    And the user clicks continue button
+#    When the user clicks finish button
+#    Then the user buys any item and see the following message
+#      | CHECKOUT: COMPLETE! |
+#    Examples:
+#      | firstName | lastName | zipCode |
+#      | "Ross"    | "Geller" | "35000" |
 
 
 

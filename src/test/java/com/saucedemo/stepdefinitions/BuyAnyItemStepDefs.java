@@ -6,6 +6,7 @@ import com.saucedemo.pages.InventoryPage;
 import com.saucedemo.pages.LoginPage;
 import com.saucedemo.utilities.ConfigurationReader;
 import com.saucedemo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,6 +14,7 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Random;
 
 public class BuyAnyItemStepDefs {
@@ -49,7 +51,7 @@ public class BuyAnyItemStepDefs {
     public void the_user_logins_and_lands_on_page_successfully(String expectedUrl) {
 
         String actualUrl = Driver.get().getCurrentUrl();
-        Assert.assertEquals("The url does NOT match",expectedUrl,actualUrl);
+        Assert.assertEquals("The url does NOT match", expectedUrl, actualUrl);
     }
 
     @Given("the user clicks any add to cart button")
@@ -58,10 +60,8 @@ public class BuyAnyItemStepDefs {
         Random rn = new Random();
         int anyItem = rn.nextInt(inventoryPage.addToCartBtn.size());
 
-        WebDriverWait wait = new WebDriverWait(Driver.get(),5);
+        WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(inventoryPage.cartIcon));
-        System.out.println("new InventoryPage().addToCartBtn.size() = " + inventoryPage.addToCartBtn.size());
-
         inventoryPage.addToCartBtn.get(anyItem).click();
     }
 
@@ -111,6 +111,6 @@ public class BuyAnyItemStepDefs {
     public void the_user_buys_any_item_and_see_the_following_message(String expectedMsg) {
 
         String actualMsg = checkoutPage.checkoutMessage.getText().trim();
-        Assert.assertEquals("The user does NOT buy any item",expectedMsg,actualMsg);
+        Assert.assertEquals("The user does NOT buy any item", expectedMsg, actualMsg);
     }
 }

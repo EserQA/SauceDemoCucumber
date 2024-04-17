@@ -8,9 +8,13 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.time.Duration;
+
 public class Hooks {
     @Before
-    public void setUp(){Driver.get().get(ConfigurationReader.get("url"));}
+    public void setUp(){
+        Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        Driver.get().get(ConfigurationReader.get("url"));}
 
     @After
     public void tearDown(Scenario scenario){
