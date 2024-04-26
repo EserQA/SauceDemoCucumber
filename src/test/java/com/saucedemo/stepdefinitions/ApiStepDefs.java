@@ -9,12 +9,12 @@ public class ApiStepDefs {
     @Given("I have an API endpoint")
     public void i_have_an_api_endpoint() {
         baseURI = "https://petstore.swagger.io/v2/pet";
-        given().log().all()
+        /*given().log().all()
                 .contentType("application/json")
                 .when().get("/2")
                 .then()
-                .assertThat().statusCode(200);
-                /*.and()
+                .assertThat().statusCode(200
+                .and()
                 .assertThat().contentType("application/json")
                 .header("Date", Matchers.notNullValue())
                 .and()

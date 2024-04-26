@@ -11,7 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import java.time.Duration;
 
 public class Hooks {
-/*    @Before
+    @Before
     public void setUp(){
         Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         Driver.get().get(ConfigurationReader.get("url"));}
@@ -25,5 +25,5 @@ public class Hooks {
         }
 
         Driver.closeDriver();
-    }*/
+    }
 }
